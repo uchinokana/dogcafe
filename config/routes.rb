@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :public do
+    
+    devise_for :customers
+    
     root to: "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index,:show]
@@ -19,8 +22,6 @@ Rails.application.routes.draw do
     resources :items, only: [:index,:new,:cleate,:show,:edit,:update]
     resources :sessions, only: [:new,:cleate,:destroy]
   end
-
-  devise_for :admins
 
 end
 
