@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index,:update,:destroy,:create,:all_destroy]
     resources :orders, only: [:new,:confirm,:complete,:create,:index,:show]
+    post "orders/confirm" => "orders#confirm", as: "confirm"
+    get "complete" => "orders#complete", as: "complete"
     resources :deliveries, only: [:index,:edit,:create,:update,:destroy,]
     resources :customers, only: [:show,:edit,:update,:unsubscribe,:withdraw]
     resources :sessions, only: [:new,:create,:destroy,]
