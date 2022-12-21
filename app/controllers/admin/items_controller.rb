@@ -4,15 +4,21 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
 
   def create
+    @item = Item.new(item_params)
+    @item.user_id = current_user.id
+    @item.save
+    redirect_to admin_item_path
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
-  def edit
+  def edi
   end
 
   def update

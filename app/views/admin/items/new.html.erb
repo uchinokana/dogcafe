@@ -1,2 +1,18 @@
 <h1>Admin::Items#new</h1>
 <p>Find me in app/views/admin/items/new.html.erb</p>
+
+          <%= form_with model: @item do |f| %>
+            <h5>商品画像</h5>
+              <%= f.file_field :image, accept: "image/*" %>
+            <h5>商品名</h5>
+              <%= f.text_field :name %>
+            <h5>商品説明</h5>
+              <%= f.text_area :introduction %>
+            <h5>ジャンル</h5>
+              
+            <h5>税抜価格</h5>
+              
+            <h5>販売ステータス</h5>
+              
+            <%= f.submit '新規登録' %>
+          <% end %>
