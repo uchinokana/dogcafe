@@ -1,6 +1,6 @@
 class Public::DeliveriesController < ApplicationController
   def index
-    @addresss = Address.new #きむこーが編集、あっているか不明です・・
+    @addresses = Address.all #きむこーが編集、あっているか不明です・・
   end
 
   def edit
