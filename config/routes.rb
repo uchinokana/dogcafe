@@ -35,8 +35,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:index,:show,:edit,:update]
     resources :orders, only: [:show,:update]
     resources :orders_status, only: [:update]
-    resources :items, only: [:index,:new,:cleate,:show,:edit,:update]
-    resources :sessions, only: [:new,:cleate,:destroy]
+    resources :items, only: [:index,:new,:create,:show,:edit,:update]
+    resources :sessions, only: [:new,:create,:destroy]
   end
 
 end
