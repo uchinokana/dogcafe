@@ -1,3 +1,20 @@
-<div class="row"></div>
+<div class="row"><!--きむこーが作成一度後回し-->
 
-<h2>注文履歴一覧表示</h2>
+      <h2>注文履歴一覧</h2>
+      <div class="col-xs-10 col-xs-offset-1"style="margin-top: 50px;">
+        <table class="table">
+          <thead>
+            <tr class="table-head" style="background-color:#F5F5F5;">
+              <th scope="col">購入日時</th>
+              <th scope="col">購入者</th>
+              <th scope="col">注文個数</th>
+              <th scope="col">注文ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <%  @？.each do |？| %>
+              <tr>
+                <td><%=link_to ？.strftime('%Y/%m/%d %H:%M:%S'), (？) %></td>
+                <!--strftime('%Y/%m/%d %H:%M:%S')は日付や時間をYYMMDDhhmmssの形式に変更できるbyきむこー-->
+</div>
