@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
+    @delivery = current_customer.deliveries.new
     @cart_items = current_customer.cart_items
     if @cart_items == nil
         render cart_items_path
@@ -8,12 +9,10 @@ class Public::OrdersController < ApplicationController
     end
   end
 
-
   def complete
   end
 
   def create
-
   end
 
   def index
