@@ -1,6 +1,5 @@
 class Public::OrdersController < ApplicationController
   def new
-    @delivery = current_customer.deliveries.new
     @cart_items = current_customer.cart_items
     if @cart_items == nil
         render cart_items_path
@@ -34,15 +33,15 @@ class Public::OrdersController < ApplicationController
     
     # 新規登録
     elsif params[:order][:address_option] == "2"
-        @delivery = current_customer.deliveries.new
-        @delivery.postal_code = params[:order][:postal_code]
-        @delivery.address = params[:order][:address] 
-        @delivery.name = params[:order][:name] 
-        @delivery.customer_id = current_customer.id 
-        if @delivery.save
-            @order.postal_code = @delivery.postal_code
-            @order.address = @delivery.address
-            @order.name = @delivery.name 
+        @address = current_customer.deliveries.new
+        @address.postal_code = params[:order][:postal_code]
+        @address.address = params[:order][:address] 
+        @address.name = params[:order][:name] 
+        @address.customer_id = current_customer.id 
+        if @address.save
+            @order.postal_code = @address.postal_code
+            @order.address = @address.address
+            @order.name = @address.name 
         else
             render "new"
         end
@@ -74,7 +73,7 @@ class Public::OrdersController < ApplicationController
     else
         render "new" 
     end
-end
+  end
 
   def index
   end
