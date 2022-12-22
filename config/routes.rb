@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  devise_for :customers,skip: [:passwords], controllers: {
+devise_for :customers, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
-  }
-
+}
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
   }
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :public do
 
-    devise_for :customers
+    # devise_for :customers
     get "about" => "homes#about"
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index,:update,:destroy,:create,:all_destroy]
@@ -30,7 +29,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:show,:edit,:update,:unsubscribe,:withdraw]
     resources :sessions, only: [:new,:create,:destroy,]
     resources :addresses, only: [:index, :edit,  :create, :update, :destroy]
-    resources :registrations, only: [:new,:create]
   end
   namespace :admin do
 
