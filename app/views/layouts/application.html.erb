@@ -23,7 +23,7 @@
               <!--顧客側-->
               <% if customer_signed_in? %>
                   <p>ようこそ、<%= current_customer.first_name %>さん！</p>
-                  <li><%= link_to "マイページ", edit_public_customer_path(current_customer), class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
+                  <li><%= link_to "マイページ", public_customer_path(current_customer), class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
                   <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "カート", public_cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
                   <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
