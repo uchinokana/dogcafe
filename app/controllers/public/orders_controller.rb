@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
-    @delivery = current_customer.deliveries.new
+    @delivery = current_customer
     @cart_items = current_customer.cart_items
     if @cart_items == nil
         render cart_items_path
