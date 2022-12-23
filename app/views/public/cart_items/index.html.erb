@@ -1,7 +1,7 @@
 <div class="row"><!--きむこー作成中-->
   <h2>ショッピングカート</h2>
-    <%= button_to 'カートを空にする', @cart_items, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: "btn btn-danger destroy-all" %>
-    
+    <%= button_to 'カートを空にする', @cart_item, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: "btn btn-danger" %>
+
   <div class="row">
     <table class="table table-bordered cart-table">
       <thead class="thead-light">
@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
         <% @cart_items.each do |cart_items| %>
         <tr>
           <td><%= cart_items.product.name %></td>
@@ -40,7 +40,7 @@
   <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
   <div>
     <% if @cart_items.count == 0  %>
-      <%= link_to "情報入力に進む", cart_items_path, class: "btn btn-success go-to-order" %>
+      <%= link_to "情報入力に進む", public_cart_items_path, class: "btn btn-success go-to-order" %>
     <% else %>
       <%= link_to "情報入力に進む", customers_path, class: "btn btn-success go-to-order" %>
     <% end %>
