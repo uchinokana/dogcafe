@@ -1,5 +1,5 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<!--<h1>Admin::Items#edit</h1>-->
+<!--<p>Find me in app/views/admin/items/edit.html.erb</p>-->
 
 
 
@@ -8,5 +8,16 @@
 
 
           <%= form_with model: @item do |f| %>
-          
+            <h5>商品画像</h5>
+              <%= f.file_field :image, accept: "image/*" %>
+            <h5>商品名</h5>
+              <%= f.text_field :name %>
+            <h5>商品説明</h5>
+              <%= f.text_area :introduction %>
+            <h5>ジャンル</h5>
+              <%= f.select :genre_id, [['ケーキ', 1], ['焼き菓子', 2],['プリン',3],['ラーメン',4]], { include_blank: true, selected: 1 }, { id: "genre_id", class: "user_class" } %>
+            <h5>税抜価格</h5>
+              <%= f.text_field :price, autofocus: true %>
+            <h5>販売ステータス</h5>
+              <%= f.select :is_active, ["販売中", "販売停止"] %>
           <% end %>
