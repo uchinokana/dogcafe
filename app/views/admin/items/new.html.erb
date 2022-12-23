@@ -1,7 +1,7 @@
 <!--<h1>Admin::Items#new</h1>-->
 <!--<p>Find me in app/views/admin/items/new.html.erb</p>-->
 
-          <%= form_with model: @item do |f| %>
+          <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
             <h5>商品画像</h5>
               <%= f.file_field :image, accept: "image/*" %>
             <h5>商品名</h5>
@@ -9,11 +9,16 @@
             <h5>商品説明</h5>
               <%= f.text_area :introduction %>
             <h5>ジャンル</h5>
+            <!--https://qiita.com/majorboy/items/e21e332e64d12a26c679-->
+            <!--https://zenn.dev/murakamiiii/articles/23be837359d232-->
+            <!--https://310nae.com/rails-selectbox/#index_id5-->
+            <!--↑参考サイト。後で消す-->
               <!--<%= f.collection_select :genre_id, Genre.all, :id, :name %>-->
+                <%= f.select :genre_id, [['ケーキ', 1], ['焼き菓子', 2],['プリン',3],['ラーメン',4]], { include_blank: true, selected: 1 }, { id: "genre_id", class: "user_class" } %>
             <h5>税抜価格</h5>
-              <!--<%= f.text_field :unit_price_without_tax, autofocus: true %>-->
+              <%= f.text_field :price, autofocus: true %>
             <h5>販売ステータス</h5>
-              <!--<%= f.select :sale_status, ["販売中", "販売停止"] %>-->
-            <%= f.submit '新規登録' %>
+              <%= f.select :is_active, ["販売中", "販売停止"] %>
+            <%= f.submit '新規登録', class: "btn btn-primary" %>
             
           <% end %>
