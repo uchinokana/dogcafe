@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-devise_for :customers, controllers: {
+devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -10,7 +10,8 @@ devise_for :customers, controllers: {
   root to: "public/homes#top"
   get 'about' => 'public/homes#about', as: 'about'
 
-
+  get 'unsubscribe' => 'public/customers#unsubscribe'
+  patch 'customers/withdraw',as: 'withdraw'
 
 
 
@@ -18,16 +19,16 @@ devise_for :customers, controllers: {
 
   namespace :public do
 
-    # devise_for :customers
+    devise_for :customers
     get "about" => "homes#about"
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index,:update,:destroy,:create,:all_destroy]
     resources :orders, only: [:new,:confirm,:complete,:create,:index,:show]
     post "orders/confirm" => "orders#confirm", as: "confirm"
     get "complete" => "orders#complete", as: "complete"
-    resources :deliveries, only: [:index,:edit,:create,:update,:destroy,]
-    resources :customers, only: [:show,:edit,:update,:unsubscribe,:withdraw]
-    resources :sessions, only: [:new,:create,:destroy,]
+    resources :deliveries, only: [:index,:edit,:create,:update,:destroy]
+    resources :customers, only: [:show,:edit,:update]
+    resources :sessions, only: [:new,:create,:destroy]
     resources :addresses, only: [:index, :edit,  :create, :update, :destroy]
   end
   namespace :admin do
