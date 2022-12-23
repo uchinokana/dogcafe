@@ -10,7 +10,7 @@ class Public::DeliveriesController < ApplicationController#きむこーが編集
 
 #配送先編集画面
   def edit
-    @addresses = Address.find(params[:id])
+    @addresses = customer_session.find(params[:id])
   end
 
 
