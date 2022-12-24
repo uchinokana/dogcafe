@@ -39,7 +39,6 @@ devise_for :customers, skip: [:passwords], controllers: {
     resources :orders, only: [:show,:update]
     resources :orders_status, only: [:update]
     resources :items, only: [:index,:new,:create,:show,:edit,:update]
-    resources :sessions, only: [:new,:create,:destroy]
   end
 
 end
