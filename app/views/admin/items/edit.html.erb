@@ -7,7 +7,8 @@
 <!--https://qiita.com/japwork/items/e258ccbbe4f48ea5a3b5-->
 <!--config/routes.rb書きかえるかも-->
 <!--patch 'admin/items/:id' => 'admin/items#update', as: 'update_admin_item'-->
-          <%= form_with model: @item, method: :patch, do |f| %>
+          <%#= form_with model: @item, url: admin_item_path(@item), method: :patch, do |f| %>
+          <%= form_for(@item, url: admin_item_path) do |f| %>
             <h5>商品画像</h5>
               <%= f.file_field :image, accept: "image/*" %>
             <h5>商品名</h5>
@@ -20,4 +21,7 @@
               <%= f.text_field :price, autofocus: true %>
             <h5>販売ステータス</h5>
               <%= f.select :is_active, ["販売中", "販売停止"] %>
+            
+            <div><%= f.submit :変更を保存, class: "btn btn-primary" %></div>
+            
           <% end %>
