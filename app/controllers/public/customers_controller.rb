@@ -22,6 +22,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
+
         @customer = current_customer
         
         @customer.update(is_deleted: true)
@@ -30,6 +31,7 @@ class Public::CustomersController < ApplicationController
 
         flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
         redirect_to root_path
+
   end
   
   private

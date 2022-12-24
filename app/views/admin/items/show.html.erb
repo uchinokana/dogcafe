@@ -1,5 +1,5 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<!--<h1>Admin::Items#show</h1>-->
+<!--<p>Find me in app/views/admin/items/show.html.erb</p>-->
 
 
           <div class="container">
@@ -32,7 +32,7 @@
               
               <div>
                 <h5>ジャンル
-                  <%= @item.genre.name %>
+                  <!--<%#= @item.genre.name %>-->
                 </h5>
               </div>
               
@@ -44,7 +44,18 @@
               
               <div>
                 <h5>販売ステータス
-                  <%= @item.is_active %>
+                <!--  <%#= @item.is_active,  %>-->
+                <td class="td-statu">
+
+                <% if @item.is_active = false %>
+
+                  <p>販売中止</p>
+
+                  <% else %>
+
+                  <P>販売中</P>
+                  
+                  <% end %>
                 </h5>
               </div>
               
