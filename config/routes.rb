@@ -12,7 +12,7 @@ devise_for :customers, skip: [:passwords], controllers: {
   get 'about' => 'public/homes#about', as: 'about'
 
   get 'unsubscribe' => 'public/customers#unsubscribe'
-  patch 'customers/withdraw',as: 'withdraw'
+  patch 'customers/withdraw' => 'public/customers#withdraw', as: 'withdraw'
 
 
 
@@ -20,7 +20,7 @@ devise_for :customers, skip: [:passwords], controllers: {
 
   namespace :public do
 
-    devise_for :customers
+    # devise_for :customers
     get "about" => "homes#about"
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index,:update,:destroy,:create,:all_destroy]
@@ -28,7 +28,7 @@ devise_for :customers, skip: [:passwords], controllers: {
     get "complete" => "orders#complete", as: "complete"
     resources :orders, only: [:new,:create,:index,:show]
     resources :deliveries, only: [:index,:edit,:create,:update,:destroy]
-    resources :customers, only: [:show,:edit,:update]
+    resource :customers, only: [:show,:edit,:update]
     resources :sessions, only: [:new,:create,:destroy]
     resources :addresses, only: [:index, :edit,  :create, :update, :destroy]
   end
