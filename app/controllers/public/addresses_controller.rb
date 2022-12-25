@@ -14,10 +14,10 @@ class Public::AddressesController < ApplicationController
   end
 
 
-  def create#customer_id作らないとダメかも？まだここでエラーでてますbyきむこー
+  def create
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
-    if address.save
+    if @address.save
       flash[:success] = '配送先を登録しました'
       redirect_to public_addresses_path
     else
@@ -39,8 +39,9 @@ class Public::AddressesController < ApplicationController
     redirect_to public_addresses_path
   end
 
+  private
   def address_params
-        params.require(:address).permit(:postal_code, :address, :name)
+    params.require(:address).permit(:postal_code, :address, :name)
   end
 end
 
