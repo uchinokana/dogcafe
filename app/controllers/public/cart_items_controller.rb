@@ -23,7 +23,7 @@ class Public::CartItemsController < ApplicationController
         if @cart_item.save
            redirect_to customers_cart_items_path
         else
-            render "customers/items/show"
+            render "index"
         end
     end
 
@@ -53,7 +53,7 @@ class Public::CartItemsController < ApplicationController
     private
 
       def cart_item_params
-        params.require(:cart_item).permit(:quantity, :item_id, :customer_id)
+        params.require(:cart_item).permit(:quantity, :item_id, :customer_id, :amount)
       end
 
 end
