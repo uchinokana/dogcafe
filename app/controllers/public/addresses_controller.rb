@@ -5,6 +5,7 @@ class Public::AddressesController < ApplicationController
 
   def index
     @addresses = Address.all #きむこーが編集、あっているか不明です・・
+    @address = Address.new
   end
 
   def update

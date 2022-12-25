@@ -4,7 +4,7 @@ class Public::DeliveriesController < ApplicationController#きむこーが編集
 #配送先登録/一覧画面
   def index
     @addresses = Address.all
-    @addresses = Address.new
+    @address = Address.new
   end
 
 
