@@ -16,16 +16,16 @@
 
         <% @cart_items.each do |cart_items| %>
         <tr>
-          <td><%= cart_items.product.name %></td>
-          <td><%= (cart_items.product.price * 1.1).to_i %></td>
+          <td><%= cart_items.item.name %></td>
+          <td><%= (cart_items.item.price * 1.1).to_i %></td>
           <td>
-            <%= form_with model: cart_items, url:  public_order_path(id: customer_id), method: :patch, local: true do |f| %>
+            <%= form_with model: cart_items, url:  public_cart_item_path(cart_items.id), method: :patch, local: true do |f| %>
               <%= f.number_field :quantity, min: 1, max: 100 %>
               <%= f.submit "変更" %>
           <% end %>
           </td>
-          <td><%= (Product.find(cart_items.customer_id).price * 1.1 * cart_items.quantity).to_i  %></td>
-          <td><%= link_to "削除する", cart_items_path(id: customer_id), method: :delete, class: "btn btn-danger"  %></td>
+          <td><%= (Item.find(cart_items.item_id).price * 1.1 * cart_items.amount).to_i  %></td>
+          <td><%= link_to "削除する", public_cart_item_path(cart_items.id), method: :delete, class: "btn btn-danger"  %></td>
         </tr>
         <% end %>
       </tbody>
@@ -39,7 +39,7 @@
   </div>
   <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
   <div>
-    <% if @cart_items.count == 0  %>
+    <% if @cart_items.count > 0  %>
       <%= link_to "情報入力に進む", new_public_order_path, class: "btn btn-success go-to-order" %>
     <% else %>
       <%= link_to "情報入力に進む", public_customer_path, class: "btn btn-success go-to-order" %>
