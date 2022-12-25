@@ -29,14 +29,15 @@
             <% end %>
           </td>
           <td><%= item.price %></td>
-          <!--<td><%#= item.genre.name %></td>-->
-          <td><%= item.is_active %></td>
+          <td><%#= item.genre.name %></td>
+          <td><%#= item.is_active %></td>
+          
         </tr>
       <% end %>
       </tbody>
     </table>
     <div class="paginate mx-auto">
-      <%= paginate @items %>
+      <%#= paginate @items %>
     </div>
   </div>
 </div>
