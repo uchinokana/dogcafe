@@ -1,6 +1,6 @@
-<div class="row"><!--きむこーが作成一度後回し-->
+<div class="row"><!--きむこーが作成-->
 
-      <h2>注文履歴一覧</h2>
+    <h2>注文履歴一覧</h2>
       <div class="col-xs-10 col-xs-offset-1"style="margin-top: 50px;">
         <table class="table">
           <thead>
@@ -11,10 +11,29 @@
               <th scope="col">注文ステータス</th>
             </tr>
           </thead>
+
           <tbody>
-            
-            <%  @？.each do |？| %>
-              <tr>
-                <td><%=link_to ？.strftime('%Y/%m/%d %H:%M:%S'), (？) %></td>
-                <!--strftime('%Y/%m/%d %H:%M:%S')は日付や時間をYYMMDDhhmmssの形式に変更できるbyきむこー-->
+           <% @orders.each do |order| %>
+                <tr>
+                  <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+                  <td>
+                    <p><%= order.postal_code %>&emsp;<%= order.address %></p>
+                    <p><%= order.name %></p>
+                  </td>
+                  <td>
+                  <% order.orders.all.each do |p| %>
+                    <p><%= p.name %></p>
+                  <%end %>
+                  </td>
+                  <td><%= order.total_payment %>円</td>
+                  <td><%= order.status %></td>
+                  <td>
+                  <%= link_to "表示する", order, class: 'btn btn-primary' %>
+                  </td>
+                </tr>
+              <% end %>
+          </tbody>
+
+        </table>
+      </div>
 </div>

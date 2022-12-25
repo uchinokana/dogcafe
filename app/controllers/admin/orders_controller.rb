@@ -11,11 +11,10 @@ class Admin::OrdersController < ApplicationController
     order.update(order_params)
     redirect_to public_orders_confirm_path
   end
-  
+
   private
 
     def order_params
         params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status, :customer_id )
     end
-  
 end
