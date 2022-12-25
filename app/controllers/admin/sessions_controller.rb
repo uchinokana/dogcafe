@@ -40,6 +40,7 @@ class Admin::SessionsController < Devise::SessionsController
   end
 
    protected
+
   
   def session_params
     params.require(:session).permit(:name, :email)
