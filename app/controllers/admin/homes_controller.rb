@@ -1,5 +1,5 @@
 class Admin::HomesController < ApplicationController
   def top
-    @orders = Order.find(params[:id])
+    @orders = Order.all
   end
 end
