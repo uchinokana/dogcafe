@@ -23,7 +23,8 @@ devise_for :customers, skip: [:passwords], controllers: {
     # devise_for :customers
     get "about" => "homes#about"
     resources :items, only: [:index,:show]
-    resources :cart_items, only: [:index,:update,:destroy,:create,:all_destroy]
+    delete 'cart_items/all_destroy'=>'cart_items#all_destroy',as: 'all_destroy'
+    resources :cart_items, only: [:index,:update,:destroy,:create]
     post "orders/confirm" => "orders#confirm", as: "confirm"
     get "complete" => "orders#complete", as: "complete"
     resources :orders, only: [:new,:create,:index,:show]
