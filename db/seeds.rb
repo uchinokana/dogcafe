@@ -8,4 +8,4 @@
 
 Admin.create(email: 'aa@aa', password: 'sato1224')
 
-Genre.create([{name: "ケーキ")
+Genre.create([{name: "ケーキ"},{name: "焼き菓子"}])

@@ -4,7 +4,7 @@ class OrderDetail < ApplicationRecord
   belongs_to :order
   
   def subtotal
-    order_detail. * amount
+    order_detail * amount
   end
 
 
