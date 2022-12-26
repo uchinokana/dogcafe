@@ -7,9 +7,9 @@
         <thead>
           <tr class="table-secondary">
             <th>商品名</th>
-            <th>単価(税込)</th>
+            <th>単価(税抜)</th>
             <th>数量</th>
-            <th>小計</th>
+            <th>小計(税込)</th>
           </tr>
         </thead>
         <tbody>
@@ -31,10 +31,10 @@
             <th>送料</th><td><%= 800 %>円</td>
           </tr>
           <tr>
-            <th>商品合計</th><td><%= @sum %>円</td>
+            <th>商品合計</th><td><%= @total_price %>円</td>
           </tr>
           <tr>
-            <th>請求金額</th><td><%= @sum + 800 %>円</td>
+            <th>請求金額</th><td><%= @total_price + 800 %>円</td>
           </tr>
         </thead>
       </table>
