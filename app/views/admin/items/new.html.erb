@@ -17,7 +17,7 @@
               <%= f.text_area :introduction %>
             <h5>ジャンル</h5>
               <!--<%#= f.collection_select :genre_id, Genre.all, :id, :name %>-->
-                <%= f.select :genre_id, [['ケーキ', 1], ['焼き菓子', 2],['プリン',3],['キャンディ',4]], { include_blank: true, selected: 1 }, { id: "genre_id", class: "user_class" } %>
+                <%= f.select :genre_id, [['ケーキ', 1], ['焼き菓子', 2]], { include_blank: true, selected: 1 }, { id: "genre_id", class: "user_class" } %>
             <h5>税抜価格</h5>
               <%= f.text_field :price, autofocus: true %>
             <h5>販売ステータス</h5>
