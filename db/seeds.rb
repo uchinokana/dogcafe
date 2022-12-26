@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create(email: 'aa@aa', password: 'sato1224')
+
+Genre.create([{name: "ケーキ")
