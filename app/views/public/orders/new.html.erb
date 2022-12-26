@@ -29,7 +29,7 @@
             <div class="delivery-address-select pt-4">
                 <h3><%= f.label :address, "お届け先" %></h3>
                 <div class="ml-3">
-                    <%= f.radio_button :address_option, 0, checked: "checked" %>
+                    <%= f.radio_button :select_address, 0, checked: "checked" %>
                     <%= f.label :address, "ご自身の住所" %>
                     <br>
                     <%= "〒#{current_customer.postal_code} #{current_customer.address}" %>
@@ -37,13 +37,13 @@
                     <%= current_customer.last_name + current_customer.first_name %>
                 </div>
                 <div class="ml-3 mt-3">
-                    <%= f.radio_button :address_option, 1 %>
+                    <%= f.radio_button :select_address, 1 %>
                     <%= f.label :address, "登録済住所から選択" %>
                     <br>
                     <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address), size: 50 %>
                 </div>
                 <div class="ml-3 mt-3 pt-2">
-                    <%= f.radio_button :address_option, 2 %>
+                    <%= f.radio_button :select_address, 2 %>
                     <%= f.label :address, "新しいお届け先" %>
                     <div class="row">
                         <div class="col-4 mt-2">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-
+                <%= f.hidden_field :shipping_cost, :value => 800 %>
                 <div class="p-5 mb-5 text-center">
                     <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
                 </div>
