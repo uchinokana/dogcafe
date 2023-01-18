@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCAKE</title>
+    <body style="background-color:ivory;">
+    <title>Dogcafe</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +15,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <h3 class="logo">
-            <%= link_to "ながのCAKE", root_path, class: 'nav-link text-dark' %></h3>
+            <%= link_to "dogcafe", root_path, class: 'nav-link text-dark' %></h3>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,12 +26,12 @@
               <% if customer_signed_in? %>
                   <p>ようこそ、<%= current_customer.first_name %>さん！</p>
                   <li><%= link_to "マイページ", public_customers_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
-                  <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-                  <li><%= link_to "カート", public_cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
+                  <li><%= link_to "キャスト紹介", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "商品一覧", public_cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
                   <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
 
               <% elsif admin_signed_in? %>
-                  <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
+                  <li><%= link_to "キャスト紹介", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
                   <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li><!--会員一覧リンク-->
                   <li><%= link_to "注文履歴一覧", admin_path, class: 'nav-link text-dark' %></li><!--注文履歴一覧リンク-->
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧リンク-->
@@ -38,7 +39,7 @@
 
               <% else %>
                   <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutリンク-->
-                  <li><%= link_to "商品一覧", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
+                  <li><%= link_to "キャスト", public_items_path, class: 'nav-link text-dark' %></li><!--商品一覧リンク-->
                   <li><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li><!--新規登録リンク-->
                   <li><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面リンク-->
               <% end %>
