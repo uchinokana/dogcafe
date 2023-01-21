@@ -20,41 +20,38 @@
               
             <div class="col-xs-8">
               
-                <h5>商品名
+                <h5>お名前
                   <%= @item.name %>
                 </h5>
               
               
               <!--<div>-->
-                <h5>商品説明
+                <h5>紹介文
                   <%= @item.introduction %>
                 </h5>
               <!--</div>-->
               
               <!--<div>-->
-                <h5>ジャンル
-                  <!--<%#= @item.genre.name %>-->
-                </h5>
               <!--</div>-->
               
               <!--<div>-->
-                <h5>税込価格
+                <h5>指名価格
                   <%= @item.price %>円
                 </h5>
               <!--</div>-->
               
               <!--<div>-->
-                <h5>販売ステータス
+                <h5>本日のシフト
                 <!--  <%#= @item.is_active,  %>-->
                 <td class="td-statu">
               
                 <% if @item.is_active = false %>
                   
-                  <p>販売中止</p>
+                  <p>お休み</p>
                   
                   <% else %>
                   
-                  <P>販売中</P>
+                  <P>出勤中</P>
                   
                   <% end %>
                 </h5>

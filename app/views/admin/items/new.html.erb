@@ -11,17 +11,14 @@
 
     
 
-            <h5>商品名</h5>
+            <h5>お名前</h5>
               <%= f.text_field :name %>
-            <h5>商品説明</h5>
+            <h5>紹介文</h5>
               <%= f.text_area :introduction %>
-            <h5>ジャンル</h5>
-              <!--<%#= f.collection_select :genre_id, Genre.all, :id, :name %>-->
-                <%= f.select :genre_id, [['ケーキ', 1], ['焼き菓子', 2]], { include_blank: true, selected: 1 }, { id: "genre_id", class: "user_class" } %>
-            <h5>税抜価格</h5>
+            <h5>指名価格</h5>
               <%= f.text_field :price, autofocus: true %>
-            <h5>販売ステータス</h5>
-              <%= f.select :is_active, ["販売中", "販売停止"] %>
+            <h5>本日のシフト</h5>
+              <%= f.select :is_active, ["出勤中", "お休み"] %>
             <%= f.submit '新規登録', class: "btn btn-primary" %>
             
           <% end %>

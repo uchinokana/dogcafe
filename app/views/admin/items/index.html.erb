@@ -11,11 +11,10 @@
     <table class="table table-hover table-inverse col-md-12 px-auto">
       <thead>
         <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税抜価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
+          <th>人気ランキング</th>
+          <th>お名前</th>
+          <th>指名価格</th>
+          <th>本日のシフト</th>
         </tr>
       </thead>
 
@@ -29,13 +28,12 @@
             <% end %>
           </td>
           <td><%= item.price %></td>
-          <td><%= item.genre.name %></td>
           <td>
             <%#= item.is_active %>
             <% if item.is_active = false %>
-              <p>販売中止</p>
+              <p>お休み</p>
             <% else %>
-              <P>販売中</P>
+              <P>出勤中</P>
             <% end %>
           </td>
           
